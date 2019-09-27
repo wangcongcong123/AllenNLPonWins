@@ -1,4 +1,4 @@
-#Run AllenNLP on Windows
+# Run AllenNLP on Windows
 
 Update(27 Sept. 2019): This repository provides starting code for running allenlnp on Windows. An example included in the repository is priority classification for crisis-related tweets (Here just includes a fixture of dataset for practice purpose).
 
