@@ -15,6 +15,6 @@ this repository provides starting code for running allenlnp on Windows. An examp
 
 
 ### Important Notes
-- In experiments/priority_crisis_classifier.json, error occurs when comments are included. Hence, you should avoid commenting in the file, although this is not a issue on Mac OS or Linux system.
+- In experiments/priority_crisis_classifier.json, error occurs when comments are included. Hence, you should avoid commenting in the file, although this is not an issue on Mac OS or Linux system.
 - In allennlp_mylib/dataset_readers/priority_crisis_tweets.py, exception raises when using WordTokenizer. Temporarily, I replaced it with simple str.split function. This needs hacking for better solution. 
 - The code is by default run on Windows with GPU supported. If you want to experiment training on CPU, go to experiments/priority_crisis_classifier.json and change cuda_device from 0 to -1 (or change --cuda-device from 0 to -1 in predict_test.py if you want to make predictions on CPU).
