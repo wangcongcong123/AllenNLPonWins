@@ -1,0 +1,1 @@
+from allennlp_mylib.predictors.priority_crisis_predictor import PriorityCrisisClassifierPredictor

@@ -1,0 +1,69 @@
+{
+    "dataset_reader": {
+        "type": "pc_tweets"
+    },
+    "iterator": {
+        "type": "bucket",
+        "batch_size": 64,
+        "padding_noise": 0.0,
+        "sorting_keys": [
+            [
+                "text",
+                "num_tokens"
+            ]
+        ]
+    },
+    "model": {
+        "type": "priority_crisis_classifier",
+        "classifier_feedforward": {
+            "activations": [
+                "relu",
+                "linear"
+            ],
+            "dropout": [
+                0.5,
+                0.0
+            ],
+            "hidden_dims": [
+                200,
+                25
+            ],
+            "input_dim": 200,
+            "num_layers": 2
+        },
+        "text_encoder": {
+            "type": "lstm",
+            "bidirectional": true,
+            "dropout": 0.2,
+            "hidden_size": 100,
+            "input_size": 100,
+            "num_layers": 1
+        },
+        "text_field_embedder": {
+            "token_embedders": {
+                "tokens": {
+                    "type": "embedding",
+                    "embedding_dim": 100,
+                    "trainable": true
+                }
+            }
+        }
+    },
+    "train_data_path": "dataset/dataset_fixure.json",
+    "validation_data_path": "dataset/dataset_fixure.json",
+    "trainer": {
+        "cuda_device": 0,
+        "grad_clipping": 5.0,
+        "num_epochs": 20,
+        "optimizer": {
+            "type": "adagrad"
+        },
+        "patience": 5,
+        "validation_metric": "-loss"
+    },
+    "vocabulary": {
+        "min_count": {
+            "tokens": 3
+        }
+    }
+}
